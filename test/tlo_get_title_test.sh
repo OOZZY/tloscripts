@@ -46,6 +46,9 @@ function get_title_test {
 
   # rsaquo
   test "`echo '<title>&rsaquo;</title>' | ${1}`" = '›'
+
+  # numeric character reference using hexadecimal unicode code point
+  test "`echo '<title>&#x2013;</title>' | ${1}`" = '–'
 }
 
 get_title_test 'python3 ../tlo_get_title.py'

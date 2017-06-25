@@ -84,7 +84,14 @@ def replace_entities(title)
     entity_code_end_index = entity_end_index - 1
     entity_code = title[entity_code_start_index .. entity_code_end_index]
 
-    entity_code_int = entity_code.to_i
+    entity_code_int = nil
+    if entity_code[0] == "x"
+      entity_code.prepend("0")
+      entity_code_int = entity_code.to_i(16)
+    else
+      entity_code_int = entity_code.to_i
+    end
+
     entity_char = entity_code_int.chr(Encoding::UTF_8)
 
     is_space = entity_char == ' '
