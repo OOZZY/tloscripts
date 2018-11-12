@@ -51,7 +51,7 @@ function get_title_test {
   test "`echo '<title>&#x2013;</title>' | ${1}`" = '–'
 }
 
-get_title_test 'python3 ../tlo_get_title.py'
-get_title_test 'ruby ../tlo_get_title.rb'
+get_title_test 'python3 ../tlo-get-title.py'
+get_title_test 'ruby ../tlo-get-title.rb'
 
 echo all tests passed ...
