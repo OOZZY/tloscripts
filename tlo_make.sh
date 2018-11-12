@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-exec make -j4 "$@"
+exec make -j `nproc` "$@"
