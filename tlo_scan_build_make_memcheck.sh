@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-clear; clear; scan-build make && valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=1 "$@"
+tlo_scan_build_make.sh && tlo_memcheck.sh "$@"
