@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [ $# -gt 0 ]
-then
+if [ $# -gt 0 ]; then
   clang_format="clang-format${1}"
 else
   clang_format="clang-format"

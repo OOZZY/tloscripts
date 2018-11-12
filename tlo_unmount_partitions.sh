@@ -2,7 +2,6 @@
 set -xeuo pipefail
 
 cd /media/tlo
-for file in *
-do
+for file in *; do
   sudo umount "${file}"
 done

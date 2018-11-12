@@ -6,13 +6,11 @@ set -euo pipefail
 # replaced with -
 # $ tlo-rename-files.sh : -
 
-for file in *
-do
+for file in *; do
   newfile=`echo "${file}" | sed s/"${1}"/"${2}"/g`
   # echo "${file}"
   # echo "${newfile}"
-  if [ "${file}" != "${newfile}" ]
-  then
+  if [ "${file}" != "${newfile}" ]; then
     echo "${file} -> ${newfile}"
   fi
 done

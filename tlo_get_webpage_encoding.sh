@@ -3,8 +3,7 @@ set -xeuo pipefail
 
 # requires bash, wget, file
 
-for url in $@
-do
+for url in $@; do
   wget -qO temp.html "${url}"
   file temp.html
 done

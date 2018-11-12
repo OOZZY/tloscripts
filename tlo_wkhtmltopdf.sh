@@ -3,8 +3,7 @@ set -xeuo pipefail
 
 # requires bash, wget, python3, wkhtmltopdf
 
-for url in $@
-do
+for url in $@; do
   file="`wget -qO - "${url}" | tlo_get_title.py | \
     tlo_make_valid_filename.py .pdf`"
   wkhtmltopdf --header-font-size 8 --footer-font-size 8 \
