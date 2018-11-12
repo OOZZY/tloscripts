@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-exec make -j `nproc` "$@"
+if [ -f ./build.ninja ]; then
+  exec ninja -j `nproc` "$@"
+elif [ -f ./Makefile ]; then
+  exec make -j `nproc` "$@"
+fi
