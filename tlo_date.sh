@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-date '+%Y-%m-%d %H:%M:%S'
+exec date '+%Y-%m-%d %H:%M:%S'
