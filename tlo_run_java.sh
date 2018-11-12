@@ -7,4 +7,4 @@ out="${base}".class
 if [ ! -e "${out}" -o "${src}" -nt "${out}" ]; then
   javac -Xlint -Werror -g "${src}"
 fi
-java -ea "${base}"
+exec java -ea "${base}" "${@:2}"
