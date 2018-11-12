@@ -4,13 +4,13 @@ set -euo pipefail
 
 # to renames files in current directory such that all : in the filenames get
 # replaced with -
-# $ tlo-rename-files.sh : -
+# $ tlo-do-rename-files : -
 
 for file in *; do
   newfile=`echo "${file}" | sed s/"${1}"/"${2}"/g`
   # echo "${file}"
   # echo "${newfile}"
   if [ "${file}" != "${newfile}" ]; then
-    mv -v "${file}" "${newfile}"
+    echo "${file} -> ${newfile}"
   fi
 done

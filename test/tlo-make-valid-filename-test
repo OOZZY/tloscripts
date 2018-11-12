@@ -22,8 +22,8 @@ function make_valid_filename_test {
   ! echo '' | ${1}
 }
 
-make_valid_filename_test 'python3 ../tlo_make_valid_filename.py'
-make_valid_filename_test 'ruby ../tlo_make_valid_filename.rb'
-make_valid_filename_test 'node ../tlo_make_valid_filename.js'
+make_valid_filename_test 'python3 ../tlo-make-valid-filename.py'
+make_valid_filename_test 'ruby ../tlo-make-valid-filename.rb'
+make_valid_filename_test 'node ../tlo-make-valid-filename.js'
 
 echo all tests passed ...
