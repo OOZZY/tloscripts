@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+# grep that behaves more like ack
+exec grep -rnI --color=auto --exclude-dir=.git "$@"
