@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -xu
+
+PWD="`pwd`"
+BASENAME="`basename "${PWD}"`"
+COMMAND_STRING="$@"
+
+cd ..
+mkdir -p "${BASENAME}-gcc"
+cd "${BASENAME}-gcc"
+bash -c "${COMMAND_STRING}"
+
+cd ..
+mkdir -p "${BASENAME}-clang"
+cd "${BASENAME}-clang"
+bash -c "${COMMAND_STRING}"

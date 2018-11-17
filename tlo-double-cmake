@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -xu
+
+PWD="`pwd`"
+BASENAME="`basename "${PWD}"`"
+
+cd ..
+mkdir -p "${BASENAME}-gcc"
+cd "${BASENAME}-gcc"
+tlo-cmake-gcc "$@"
+
+cd ..
+mkdir -p "${BASENAME}-clang"
+cd "${BASENAME}-clang"
+tlo-cmake-clang "$@"
