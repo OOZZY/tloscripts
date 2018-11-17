@@ -2,8 +2,8 @@
 set -xeuo pipefail
 
 if [ $# -ne 1 ]; then
-	echo "usage: `basename "${0}"` <source-directory>"
-	exit 1
+  echo "usage: `basename "${0}"` <source-directory>"
+  exit 1
 fi
 
 mkdir -p cppcheck-report
