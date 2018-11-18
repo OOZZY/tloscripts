@@ -6,11 +6,11 @@ BASENAME="`basename "${PWD}"`"
 COMMAND_STRING="$@"
 
 cd ..
-mkdir -p "${BASENAME}-gcc"
-cd "${BASENAME}-gcc"
+mkdir -p "${BASENAME}-clang"
+cd "${BASENAME}-clang"
 bash -c "${COMMAND_STRING}"
 
 cd ..
-mkdir -p "${BASENAME}-clang"
-cd "${BASENAME}-clang"
+mkdir -p "${BASENAME}-gcc"
+cd "${BASENAME}-gcc"
 bash -c "${COMMAND_STRING}"
