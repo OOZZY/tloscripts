@@ -5,11 +5,11 @@ PWD="`pwd`"
 BASENAME="`basename "${PWD}"`"
 
 cd ..
-mkdir -p "${BASENAME}-clang"
-cd "${BASENAME}-clang"
+mkdir -p "${BASENAME}-clang-debug"
+cd "${BASENAME}-clang-debug"
 tlo-cmake-clang "$@"
 
 cd ..
-mkdir -p "${BASENAME}-gcc"
-cd "${BASENAME}-gcc"
+mkdir -p "${BASENAME}-gcc-debug"
+cd "${BASENAME}-gcc-debug"
 tlo-cmake-gcc "$@"
