@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -xu
+
+PWD="`pwd`"
+BASENAME="`basename "${PWD}"`"
+
+cd ..
+mkdir -p "${BASENAME}-clang-debug"
+cd "${BASENAME}-clang-debug"
+tlo-cmake-clang "$@"
+
+cd ..
+mkdir -p "${BASENAME}-clang-release"
+cd "${BASENAME}-clang-release"
+tlo-cmake-clang -DCMAKE_BUILD_TYPE=Release "$@"
+
+cd ..
+mkdir -p "${BASENAME}-gcc-debug"
+cd "${BASENAME}-gcc-debug"
+tlo-cmake-gcc "$@"
+
+cd ..
+mkdir -p "${BASENAME}-gcc-release"
+cd "${BASENAME}-gcc-release"
+tlo-cmake-gcc -DCMAKE_BUILD_TYPE=Release "$@"
