@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
-set -xeuo pipefail
+set -euo pipefail
+
+if [ "$(uname -s)" = "FreeBSD" ]; then
+  # can also use gnproc from the coreutils package
+  NUM_CPUS=$(sysctl -n hw.ncpu)
+else
+  NUM_CPUS=$(nproc)
+fi
+
+set -x
 
 if [ -f ./build.ninja ]; then
-  exec ninja -j `nproc` "$@"
+  exec ninja -j $NUM_CPUS "$@"
 elif [ -f ./Makefile ]; then
-  exec make -j `nproc` "$@"
+  exec make -j $NUM_CPUS "$@"
 fi
