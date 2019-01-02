@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
-set -xeuo pipefail
+set -euo pipefail
 
-exec find "${1}" -type f -print0 | xargs -0 md5sum >> "${1}".md5
+MD5SUM=md5sum
+if [ "$(uname -s)" = "FreeBSD" ]; then
+  # programs from the coreutils package have names prefixed with "g"
+  MD5SUM=gmd5sum
+fi
+
+set -x
+
+exec find "${1}" -type f -print0 | xargs -0 $MD5SUM >> "${1}".md5
