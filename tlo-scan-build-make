@@ -2,7 +2,7 @@
 set -euo pipefail
 
 SCAN_BUILD=scan-build
-if [ "$(uname -s)" = "FreeBSD" ]; then
+if [ "$(uname -o)" = "FreeBSD" ]; then
   # programs from the llvm60 package have names suffixed with "60"
   SCAN_BUILD=scan-build60
 fi

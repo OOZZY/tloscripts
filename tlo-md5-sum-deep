@@ -2,7 +2,7 @@
 set -euo pipefail
 
 MD5SUM=md5sum
-if [ "$(uname -s)" = "FreeBSD" ]; then
+if [ "$(uname -o)" = "FreeBSD" ]; then
   # programs from the coreutils package have names prefixed with "g"
   MD5SUM=gmd5sum
 fi

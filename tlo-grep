@@ -2,7 +2,7 @@
 set -euo pipefail
 
 GREP=grep
-if [ "$(uname -s)" = "FreeBSD" ]; then
+if [ "$(uname -o)" = "FreeBSD" ]; then
   # instead of /usr/bin/grep, use the grep from the gnugrep package which is
   # newer and supports more features
   GREP=/usr/local/bin/grep

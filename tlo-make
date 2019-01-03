@@ -2,7 +2,7 @@
 set -euo pipefail
 
 MAKE=make
-if [ "$(uname -s)" = "FreeBSD" ]; then
+if [ "$(uname -o)" = "FreeBSD" ]; then
   # use gnu make from the gmake package
   MAKE=gmake
 
