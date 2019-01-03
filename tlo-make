@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+MAKE=make
 if [ "$(uname -s)" = "FreeBSD" ]; then
+  # use gnu make from the gmake package
+  MAKE=gmake
+
   # can also use gnproc from the coreutils package
   NUM_CPUS=$(sysctl -n hw.ncpu)
 else
@@ -13,5 +17,5 @@ set -x
 if [ -f ./build.ninja ]; then
   exec ninja -j $NUM_CPUS "$@"
 elif [ -f ./Makefile ]; then
-  exec make -j $NUM_CPUS "$@"
+  exec $MAKE -j $NUM_CPUS "$@"
 fi
