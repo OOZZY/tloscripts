@@ -4,4 +4,3 @@ set -xeuo pipefail
 sudo pkg update
 sudo pkg upgrade
 sudo pkg check -danv
-sudo freebsd-update fetch install
