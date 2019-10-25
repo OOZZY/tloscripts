@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+# run in directory with coverage.info file and coverage directory
+rm -rf coverage.info coverage

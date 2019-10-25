@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+# run in directory with *.o or *.obj files
+find \( -name '*.o' -o -name '*.obj' \) -print0 | xargs -0 gcov
+find -name '*.gcov' -print0 | xargs -0 vim

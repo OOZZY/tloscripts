@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+# run in directory with *.gcov files
+find -name '*.gcov' -print0 | xargs -0 rm -rf

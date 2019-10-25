@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+# run in directory with *.gcda files
+find -name '*.gcda' -print0 | xargs -0 rm -rf
