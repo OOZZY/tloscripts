@@ -2,4 +2,4 @@
 set -xeuo pipefail
 
 # run in directory with *.gcda files
-lcov --zerocounters --directory .
+exec lcov --zerocounters --directory .
