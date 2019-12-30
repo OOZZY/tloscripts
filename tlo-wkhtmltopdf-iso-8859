@@ -1,13 +1,28 @@
 #!/usr/bin/env bash
-set -xeuo pipefail
+set -uo pipefail
 
 # requires bash, wget, python3, wkhtmltopdf
 
 for url in $@; do
+  echo "Extracting title from \"${url}\"..."
   file="`wget -qO - "${url}" | tlo-get-title.py iso-8859-1 | \
     tlo-make-valid-filename.py .pdf`"
+
+  echo "Downloading to \"${file}\"..."
   wkhtmltopdf --header-font-size 8 --footer-font-size 8 \
     --header-left "[title]" --header-right  "[isodate] [time]" \
     --footer-left "[webpage]" --footer-right "[page] | [topage]" \
     "${url}" "${file}"
+
+  while [ "$?" != "0" ]; do
+    echo "Retrying..."
+    wkhtmltopdf --header-font-size 8 --footer-font-size 8 \
+      --header-left "[title]" --header-right  "[isodate] [time]" \
+      --footer-left "[webpage]" --footer-right "[page] | [topage]" \
+      "${url}" "${file}"
+  done
+
+  echo
 done
+
+echo "Done!"
