@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -xeuo pipefail
 
-SCAN_BUILD=scan-build
-if [ "$(uname -o)" = "FreeBSD" ]; then
-  # programs from the llvm60 package have names suffixed with "60"
-  SCAN_BUILD=scan-build60
-fi
+SCAN_BUILD="scan-build${CLANG_SUFFIX:-}"
 
-set -x
-
-exec $SCAN_BUILD tlo-make "$@"
+exec "${SCAN_BUILD}" tlo-make "$@"

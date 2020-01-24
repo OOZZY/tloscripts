@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-CC=`which gcc` CXX=`which g++` exec cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Debug "$@"
+GCC="gcc${GCC_SUFFIX:-}"
+GPP="g++${GCC_SUFFIX:-}"
+
+CC=`which "${GCC}"` CXX=`which "${GPP}"` exec cmake -G 'Unix Makefiles' -DCMAKE_BUILD_TYPE=Debug "$@"

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-exec clang -std=c11 -pedantic -Wall -Wextra -Werror "$@"
+CLANG="clang${CLANG_SUFFIX:-}"
+
+exec "${CLANG}" -std=c11 -pedantic -Wall -Wextra -Werror "$@"

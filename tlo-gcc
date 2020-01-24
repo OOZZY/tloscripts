@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-exec gcc -std=c11 -pedantic -Wall -Wextra -Werror "$@"
+GCC="gcc${GCC_SUFFIX:-}"
+
+exec "${GCC}" -std=c11 -pedantic -Wall -Wextra -Werror "$@"
