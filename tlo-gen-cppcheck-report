@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-if [ $# -ne 1 ]; then
-  echo "usage: `basename "${0}"` <source-directory>"
+if [ $# -eq 0 ]; then
+  echo "usage: `basename "${0}"` [arguments-to-cppcheck] <source-directory>"
   exit 1
 fi
 
 mkdir -p cppcheck-report
-cppcheck --enable=warning,style,performance,portability,information --force --xml "${1}" 2> cppcheck-report/report.xml
-cppcheck-htmlreport --file=cppcheck-report/report.xml --report-dir=cppcheck-report
+cppcheck --enable=warning,style,performance,portability,information --force \
+  --xml "$@" 2> cppcheck-report/report.xml
+cppcheck-htmlreport --file=cppcheck-report/report.xml \
+  --report-dir=cppcheck-report

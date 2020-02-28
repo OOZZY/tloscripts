@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-if [ $# -ne 1 ]; then
-  echo "usage: `basename "${0}"` <source-directory>"
+if [ $# -eq 0 ]; then
+  echo "usage: `basename "${0}"` [arguments-to-flawfinder] <source-directory>"
   exit 1
 fi
 
-exec flawfinder --html --context "${1}" > flawfinder-report.html
+exec flawfinder --html --context "$@" > flawfinder-report.html
