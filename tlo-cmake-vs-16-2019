@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+exec cmake -G 'Visual Studio 16 2019' -A x64 "$@"
