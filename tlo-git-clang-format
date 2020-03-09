@@ -5,8 +5,8 @@ CLANG_FORMAT="clang-format${CLANG_SUFFIX:-}"
 
 if git status > /dev/null 2>&1; then
   cd "$(git rev-parse --show-toplevel)"
-  git ls-files --cached --modified --others | grep ".*\.\(c\|h\|cpp\|hpp\)$"
-  git ls-files --cached --modified --others -z | \
-    grep -z ".*\.\(c\|h\|cpp\|hpp\)$" | \
-    xargs -0 "${CLANG_FORMAT}" -i -style=Google
+  git ls-files --modified --others | grep ".*\.\(c\|h\|cpp\|hpp\)$"
+  git ls-files --modified --others -z \
+    | grep -z ".*\.\(c\|h\|cpp\|hpp\)$" \
+    | xargs -0 "${CLANG_FORMAT}" -i -style=Google
 fi
