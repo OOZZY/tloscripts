@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+exec ffmpeg -v error -i "${1}" -f null -
