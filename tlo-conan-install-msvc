@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+exec conan install --build=missing --profile=msvc "$@"
