@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+GCC="gcc${GCC_SUFFIX:-}"
+GPP="g++${GCC_SUFFIX:-}"
+
+CC=`which "${GCC}"` CXX=`which "${GPP}"` exec conan install --build=missing --profile=gcc "$@"
