@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -xu
+
+PWD="`pwd`"
+BASENAME="`basename "${PWD}"`"
+
+cd ..
+mkdir -p "${BASENAME}-clang-debug"
+cd "${BASENAME}-clang-debug"
+tlo-conan-install-clang "$@"
+
+cd ..
+mkdir -p "${BASENAME}-gcc-debug"
+cd "${BASENAME}-gcc-debug"
+tlo-conan-install-gcc "$@"
