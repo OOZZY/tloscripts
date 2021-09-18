@@ -6,6 +6,6 @@ CLANGPP="clang++${CLANG_SUFFIX:-}"
 src="${1}"
 out="`basename "${1}" .cpp`".out
 if [ ! -e "${out}" -o "${src}" -nt "${out}" ]; then
-  "${CLANGPP}" -std=c++17 -pedantic -Wall -Wextra -Werror -g "${src}" -o "${out}"
+  "${CLANGPP}" -std=c++20 -pedantic -Wall -Wextra -Werror -g "${src}" -o "${out}"
 fi
 exec ./"${out}" "${@:2}"

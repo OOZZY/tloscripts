@@ -3,4 +3,4 @@ set -xeuo pipefail
 
 GPP="g++${GCC_SUFFIX:-}"
 
-exec "${GPP}" -std=c++17 -pedantic -Wall -Wextra -Werror "$@"
+exec "${GPP}" -std=c++20 -pedantic -Wall -Wextra -Werror "$@"
