@@ -2,4 +2,4 @@
 set -xeuo pipefail
 
 # grep that behaves more like ack
-exec grep -rnI --color=auto --exclude-dir=.git "$@"
+exec grep --color=auto --recursive --line-number -I --exclude-dir=.git "$@"

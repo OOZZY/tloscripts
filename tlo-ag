@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-# ag that behaves more like ack
-exec ag -Us --hidden --ignore .git "$@"
+# ag (The Silver Searcher) that behaves more like ack
+exec ag --case-sensitive --skip-vcs-ignores --hidden --ignore .git "$@"

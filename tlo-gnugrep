@@ -10,4 +10,4 @@ fi
 set -x
 
 # grep that behaves more like ack
-exec $GREP -rnI --color=auto --exclude-dir=.git "$@"
+exec $GREP --color=auto --recursive --line-number -I --exclude-dir=.git "$@"

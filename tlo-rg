@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+# rg (ripgrep) that behaves more like ack
+exec rg --no-ignore --hidden --glob '!.git' "$@"
