@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+GREP=grep
+if [ "$(uname -o)" = "FreeBSD" ]; then
+  # instead of /usr/bin/grep, use the grep from the gnugrep package
+  GREP=/usr/local/bin/grep
+fi
+
+set -x
+
+# grep that behaves more like ack
+exec $GREP -rnI --color=auto --exclude-dir=.git "$@"
