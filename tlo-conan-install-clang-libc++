@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -xeuo pipefail
+
+CLANG="clang${CLANG_SUFFIX:-}"
+CLANGPP="clang++${CLANG_SUFFIX:-}"
+
+CC=`which "${CLANG}"` CXX=`which "${CLANGPP}"` exec conan install --build=missing --profile=clang-libc++ "$@"
